@@ -11,6 +11,25 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ *
+ * leetCode51
+ * The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+ *
+ * Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order.
+ *
+ * Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a
+ * queen and an empty space, respectively.
+ *
+ * Input: n = 4
+ * Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ * Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above
+ *
+ * Input: n = 1
+ * Output: [["Q"]]
+ *
+ * 1 <= n <= 9
+ *
+ *
  1.思路：每两个皇后之间不能是同一行、同一列、同一左右对角线；
  看样子只能一个一个放queen，并且在放置时判断不能在同一行、同一列、同一左右对角线
  2. 从第一行某一列开始放置一个queen，再从下一行试某个列，直至将所有行数判断完，则得到一个满足条件的result;然后回溯到上一行接着进行如上操作
@@ -34,7 +53,8 @@ class NQueens {
 
 
 
-    private void helper(int total, int currentRow, Set<Integer> colSet, Set<Integer> leftSum, Set<Integer> rightSum, List<List<String>> results, List<String> currentResult) {
+    private void helper(int total, int currentRow, Set<Integer> colSet, Set<Integer> leftSum, Set<Integer> rightSum,
+                        List<List<String>> results, List<String> currentResult) {
         if (currentRow >= total) {
             // 说明所有行数都试到了,此时是一个完全满足条件的一种情况
             // list需要深度复制出来,因为每回到上一层就要去掉当前位置
@@ -49,7 +69,7 @@ class NQueens {
                 // 此种情况是发生冲突了，继续试下一列
                 continue;
             }
-            // 到此处说明列位置合适
+            // 到此处说明列位置合适 打印列
             String str = "";
             for (int i=0; i<total; i++) {
                 if (i == currentCol) {
