@@ -14,7 +14,7 @@ package com.datastructure.learning.algorithm;
  * Input: nums = [5,7,7,8,8,10], target = 8
  * Output: [3,4]
  */
-public class Solution34 {
+public class Solution34FindFirstLastElementInSortedArray {
 
     public int[] searchRange(int[] nums, int target) {
 
@@ -34,7 +34,7 @@ public class Solution34 {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
 
-                // 继续向左找，因为可能有相同元素
+                // 继续向左找，因为可能有相同元素处于[left, mid - 1]
                 right = mid - 1;
             } else if (nums[mid] > target) {
                 right = mid - 1;
@@ -43,7 +43,8 @@ public class Solution34 {
             }
         }
 
-        // right在left左侧,此时left才是元素第一次出现的位置
+        // [right, left]
+        // right在left左侧,此时left才是元素第一次出现的位置(可画图证明）
         if (left < nums.length && nums[left] == target) {
             return left;
         }
@@ -57,7 +58,7 @@ public class Solution34 {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
 
-                // 继续向右找，因为可能有相同元素
+                // 继续向右找，因为可能有相同元素处于[mid + 1, right]
                 left = mid + 1;
             } else if (nums[mid] > target) {
                 right = mid - 1;
