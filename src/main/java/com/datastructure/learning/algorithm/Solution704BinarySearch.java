@@ -33,7 +33,7 @@ package com.datastructure.learning.algorithm;
  * 这道题目的前提是数组为有序数组，同时题目还强调数组中无重复元素，因为一旦有重复元素，使用二分查找法返回的元素下标可能不是唯一的，这些都是使用二分法的前提条件，
  * 当大家看到题目描述满足如上条件的时候，可要想一想是不是可以用二分法了。
  *
- * 扩展：存在相等元素，返回第一个或最后一个相等的index
+ * 扩展：存在相等元素，返回第一个或最后一个相等的index leetcode34
  */
 public class Solution704BinarySearch {
 
