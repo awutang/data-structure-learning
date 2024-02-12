@@ -20,7 +20,7 @@ package com.datastructure.learning.algorithm;
  * 左侧数之和 sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11 ，
  * 右侧数之和 sum = nums[4] + nums[5] = 5 + 6 = 11 ，二者相等。
  */
-public class Solution724 {
+public class Solution724FindPivotIndex {
 
     public int pivotIndex(int[] nums) {
 

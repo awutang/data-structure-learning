@@ -14,7 +14,7 @@ package com.datastructure.learning.algorithm;
  *
  * Note that the linked lists must retain their original structure after the function returns.
  */
-public class Solution160 {
+public class Solution160IntersectionOfTwoLinkedLists {
 
     /**
      * I found most solutions here preprocess linkedlists to get the difference in len.

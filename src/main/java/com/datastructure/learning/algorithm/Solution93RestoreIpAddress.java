@@ -20,7 +20,7 @@ import java.util.List;
  * 输入：s = "25525511135"
  * 输出：["255.255.11.135","255.255.111.35"]
  */
-public class Solution93 {
+public class Solution93RestoreIpAddress {
 
     public List<String> restoreIpAddresses(String s) {
 
@@ -112,6 +112,6 @@ public class Solution93 {
 
     public static void main(String[] args) {
         String ss = "25525511135";
-        new Solution93().restoreIpAddresses(ss);
+        new Solution93RestoreIpAddress().restoreIpAddresses(ss);
     }
 }
