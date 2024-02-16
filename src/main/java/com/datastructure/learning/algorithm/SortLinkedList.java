@@ -29,7 +29,7 @@ package com.datastructure.learning.algorithm;
  * 最后归并两个升序的链表，时间复杂度O(n)。
  * 算法的整体时间复杂度是O(n)，只使用了有限几个变量，空间复杂度为O(1)。
  */
-public class LinkedList {
+public class SortLinkedList {
 
     public class Node {
         public int val;
@@ -70,8 +70,18 @@ public class LinkedList {
         System.out.println();
     }
 
+    /**
+     * 链接：https://www.nowcoder.com/questionTerminal/3a188e9c06ce4844b031713b82784a2a?f=discussion
+     * 来源：牛客网
+     *
+     * 直接对链表进行排序的话至少也需要O(nlogn)的时间复杂度，我们注意到链表的奇数位和偶数位其实是有序的，而要将两个有序的部分变为整体有序，
+     *  归并是再适合不过的了。因此我们可以按照如下的算法来求解：
+     * 1.先将链表的拆成奇数位和偶数位两条链表，时间复杂度O(n)；
+     * 2.再将偶数位链表进行反转，时间复杂度O(n)；
+     * 3.最后归并两个升序的链表，时间复杂度O(n)。
+     * 算法的整体时间复杂度是O(n)，只使用了有限几个变量，空间复杂度为O(1)。
+     */
     public void run() {
-        // TODO
         Node head = createNode();
         if(head == null || head.next == null) {
             printNode(null);
@@ -102,7 +112,9 @@ public class LinkedList {
 
     // 反转链表
     private Node reverseList(Node head) {
-        if(head == null) return head;
+        if(head == null) {
+            return head;
+        }
         Node prev = null;
         Node cur = head;
         while(cur != null){
@@ -116,7 +128,7 @@ public class LinkedList {
         return prev;
     }
 
-    // 合并两个有序链表
+    // 合并两个有序链表，也使得结果有序
     private Node mergeList(Node head1, Node head2) {
         Node dummy = new Node();
         Node cur = dummy;
@@ -148,7 +160,7 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList l = new LinkedList();
+        SortLinkedList l = new SortLinkedList();
         l.run();
     }
 }
