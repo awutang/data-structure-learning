@@ -27,6 +27,13 @@ package com.datastructure.learning.algorithm;
  * Constraints:
  *
  * 1 <= n <= 45
+ *
+ *
+ * extend：这道题目还可以继续深化，就是一步一个台阶，两个台阶，三个台阶，直到 m个台阶，有多少种方法爬到n阶楼顶。
+ *
+ * 这又有难度了，这其实是一个完全背包问题，但力扣上没有这种题目，大家可以去卡码网去做一下 57. 爬楼梯(opens new window)
+ *
+ * 所以后续我在讲解背包问题的时候，今天这道题还会从背包问题的角度上来再讲一遍。 如果想提前看一下，可以看这篇:70.爬楼梯完全背包版本
  */
 public class Solution70ClimbingStairs {
     /**
