@@ -38,6 +38,7 @@ public class Solution160IntersectionOfTwoLinkedLists {
         // 解法 possible solutions
         // 常规解法就是区分出哪个长并且具体长多少，然后前进几步，让两条队列的指针同步向前同同时到达交点。
         // 更聪明的解法就是找出重点，重点是让两个指针起点相同，保证最终同时到达交点；让两个指针分别遍历两条链表能达到这一目的
+        // time:O(M+n) space:O(1)
         // coding
         // testCase
 
