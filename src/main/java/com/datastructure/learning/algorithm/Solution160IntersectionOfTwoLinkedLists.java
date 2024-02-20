@@ -5,7 +5,8 @@
 package com.datastructure.learning.algorithm;
 
 /**
- * Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
+ * Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect.
+ * If the two linked lists have no intersection at all, return null.
  *
  * For example, the following two linked lists begin to intersect at node c1:
  *
@@ -49,14 +50,14 @@ public class Solution160IntersectionOfTwoLinkedLists {
         ListNode b = headB;
 
         // 1.长度相等并相交
-        // 2. 长度不相等并相交
+        // 2.长度不相等并相交
         // 3.如果链表不相交，最终a,b会同时走到null,正好返回null符合要求
 
         // if a & b have different len, then we will stop the loop after second iteration
         while (a != b) {
             // for the end of first iteration, we just reset the pointer to the head of another linkedlist
             a = (a != null ? a.next : headB);
-           b = (b != null ? b.next : headA);
+            b = (b != null ? b.next : headA);
         }
 
         return a;
