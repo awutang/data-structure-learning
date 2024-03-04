@@ -69,9 +69,11 @@ public class Solution15_3Sum {
                     left++;
                     right--;
                     while (left < right && nums[left] == nums[left - 1]) {
+                        // 左边的相同元素已经处理过了
                         left++;
                     }
                     while (left < right && nums[right] == nums[right + 1]) {
+                        // 右边的相同元素已经处理过了
                         right--;
                     }
                 } else if (nums[i] + nums[left] + nums[right] < 0) {
