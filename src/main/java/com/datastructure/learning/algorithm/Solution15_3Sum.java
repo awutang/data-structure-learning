@@ -43,8 +43,9 @@ public class Solution15_3Sum {
 
     // 看到这题首先想到
     // 1.暴力：三重循环.但是否能提高一点性能呢？利用HashSet,如下：
-    // 2.a+b+c=0,则c=-(a+b).利用HashSet判断c是否在Set中。因此双重循环a,b并得到c,利用HashTable可以O(1)判断c是否在hashSet中。
-    // time:O(1*N*N),space:O(N)
+    // 2.a+b+c=0,则c=-(a+b).利用HashSet(将c的所有可能值放入set中)判断c是否在数组中。因此双重循环a,b并得到c,利用HashSet可以O(1)判断c是否在数组中。
+    // time:O(1*N*N),space:O(N)，
+    // 但是我们有一个非常棘手的问题，就是题目中说的不可以包含重复的三元组，如上的方法不能避免三元组之间的重复，并且有可能造成三元组中的多个元素来自于数组同一个index的元素
     // 3.另外一种不易想到的解法，双指针法，利用排序。a=-(b+c),循环a,因为有序所以可以对b,c从一头一尾向中间靠近，如果a+b+c>0则需要减小，
     // c往小值的方向移动即往左，如果a+b+c<0则需要变大，b往大值的方向移动即往右，直到a+b+c=0.time:O(N*N),space:0
     public List<List<Integer>> threeSum(int[] nums) {
