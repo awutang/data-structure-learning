@@ -26,7 +26,8 @@ public class Solution343ReverseString {
         }
 
         // 解法
-        /**因为不能使用额外空间，因此栈等数据结构不能使用；可以采用双指针法让首尾元素交换*/
+        /**因为不能使用额外空间，因此栈等数据结构不能使用；可以采用双指针法让首尾元素交换
+         * time:O(n)  space:O(1)*/
         int left = 0;
         int right = s.length - 1;
         char temp;

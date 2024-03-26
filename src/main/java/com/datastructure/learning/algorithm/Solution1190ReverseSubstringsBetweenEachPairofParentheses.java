@@ -17,7 +17,7 @@ import java.util.Stack;
  * Output: "iloveu"
  * Explanation: The substring "love" is reversed first, then the whole string is reversed.
  */
-public class Solution1190 {
+public class Solution1190ReverseSubstringsBetweenEachPairofParentheses {
 
     public String reverseParentheses(String s) {
 
