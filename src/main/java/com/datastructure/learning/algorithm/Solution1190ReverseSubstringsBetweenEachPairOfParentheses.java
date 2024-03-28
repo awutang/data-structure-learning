@@ -17,9 +17,11 @@ import java.util.Stack;
  * Output: "iloveu"
  * Explanation: The substring "love" is reversed first, then the whole string is reversed.
  */
-public class Solution1190ReverseSubstringsBetweenEachPairofParentheses {
+public class Solution1190ReverseSubstringsBetweenEachPairOfParentheses {
 
     public String reverseParentheses(String s) {
+        // 边界
+        // 解法：碰到成对括号就翻转括号之间的字符
 
         StringBuilder sb = new StringBuilder();
         Stack<Integer> stack = new Stack<>();
@@ -30,6 +32,7 @@ public class Solution1190ReverseSubstringsBetweenEachPairofParentheses {
             if (arr[i] == '(') {
                 stack.push(i);
             }
+            // 出现成对括号就翻转括号之间的字符
             if (arr[i] == ')') {
                 reverse(arr, stack.pop() + 1, i - 1);
             }
@@ -44,6 +47,12 @@ public class Solution1190ReverseSubstringsBetweenEachPairofParentheses {
         return sb.toString();
     }
 
+    /**
+     * 反转字符数组
+     * @param arr
+     * @param i
+     * @param j
+     */
     private void reverse(char[] arr, int i, int j) {
         while (j > i) {
             char temp = arr[i];
