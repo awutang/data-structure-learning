@@ -27,12 +27,14 @@ package com.datastructure.learning.algorithm.str;
 public class Solution28FindTheIndexOfTheFirstOccurrenceInAString {
 
 
-    public int strStr(String haystack, String needle) {
+    public static int strStr(String haystack, String needle) {
 
         // 边界
         // 解法：
         /**1.暴力解法:遍历文本串haystack（长度为n），每一次判断needle的m个字符，因此时间复杂度为O(n*m)
-         * 2.利用前缀表：当needle的指针找到与文本串不匹配的字符时，不需要回到needle首字符重新开始匹配
+         * 2.利用前缀表：当needle的指针找到与文本串不匹配的字符时，不需要回到needle首字符重新开始匹配。
+         * 因为在匹配的过程中，根据前缀表不断调整匹配的位置，可以看出匹配的过程是O(n)，之前还要单独生成next数组，时间复杂度是O(m)。
+         * 所以整个KMP算法的时间复杂度是O(n+m)的。
          *     2.1 构造前缀表next[]
          *     2.2 利用next[]匹配*/
 
@@ -47,14 +49,13 @@ public class Solution28FindTheIndexOfTheFirstOccurrenceInAString {
         // 利用next[]匹配 在文本转中寻找模式串
         int j = -1;
         for (int i = 0; i < haystack.length(); i++) {
+            // 如果不匹配则模式串指针要回退到前面字符串存在最长长度相同前后缀子串的位置
+            while (j >= 0  && needle.charAt(j + 1) != haystack.charAt(i)) {
+                j = next[j];
+            }
             // 如果匹配则同时后移
             if (needle.charAt(j + 1) == haystack.charAt(i)) {
                 j++;
-                i++;
-            }
-            // 如果不匹配则模式串指针要回退到前面字符串存在最长长度相同前后缀子串的位置
-            if (needle.charAt(j + 1) != haystack.charAt(i)) {
-                j = next[j];
             }
             // 文本串中出现了模式串
             if (j + 1 == needle.length()) {
@@ -70,7 +71,7 @@ public class Solution28FindTheIndexOfTheFirstOccurrenceInAString {
      * @param next
      * @param needle
      */
-    private void getNext(int[] next, String needle) {
+    private static void getNext(int[] next, String needle) {
         // j表示 下标i之前（包括i）的字符串 前缀子串末尾，i表示后缀子串末尾，所以j是相同前后缀子串的长度
         // 初始化，前缀表统一减1
         int j = -1;
@@ -82,11 +83,6 @@ public class Solution28FindTheIndexOfTheFirstOccurrenceInAString {
 
             // 判断"aa"前缀后缀子串 相同时的最大长度
 
-            // 如果前后缀子串末尾相等
-            if (needle.charAt(j+1) == needle.charAt(i)) {
-                j++;
-            }
-
             // 如果前后缀子串末尾不相同，那么j+1与i这个位置肯定不存在相同的前后缀子串，因此前缀子串末尾要回退,
             // 直至存在相同前后缀子串
             while (j >= 0 && needle.charAt(j+1) != needle.charAt(i)) {
@@ -96,8 +92,19 @@ public class Solution28FindTheIndexOfTheFirstOccurrenceInAString {
                 // 就要找 j+1前一个元素在next数组里的值
                 j = next[j];
             }
+
+            // 如果前后缀子串末尾相等则后移到下一次比较
+            if (needle.charAt(j+1) == needle.charAt(i)) {
+                j++;
+            }
+
             // 将j（前缀的长度）赋给next[i]
             next[i] = j;
         }
+    }
+
+    public static void main(String[] args) {
+        String str = "sadbutsad";
+        strStr(str, "sad");
     }
 }
