@@ -104,7 +104,7 @@ public class Solution28FindTheIndexOfTheFirstOccurrenceInAString {
     }
 
     public static void main(String[] args) {
-        String str = "sadbutsad";
-        strStr(str, "sad");
+        String str = "aabaabaafa";
+        strStr(str, "aabaaf");
     }
 }
