@@ -22,7 +22,7 @@ package com.datastructure.learning.algorithm;
  * Note that the five elements can be returned in any order.
  * It does not matter what you leave beyond the returned k (hence they are underscores).
  */
-public class Solution24RemoveElement {
+public class Solution27RemoveElement {
 
     public int removeElement(int[] nums, int val) {
 

@@ -16,7 +16,7 @@ package com.datastructure.learning.algorithm;
  * Input: s = ["H","a","n","n","a","h"]
  * Output: ["h","a","n","n","a","H"]
  */
-public class Solution343ReverseString {
+public class Solution344ReverseString {
 
     public static void reverseString(char[] s) {
 
