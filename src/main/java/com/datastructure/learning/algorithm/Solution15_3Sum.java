@@ -57,6 +57,10 @@ public class Solution15_3Sum {
         Arrays.sort(nums);
         // -4 -1 -1 0 1 2 i,j,k(i往后；j往后；k往前（j,k在i后）)
         for (int i = 0; i < nums.length - 2; i++) {
+            // 排序之后如果第一个元素已经大于零，那么无论如何组合都不可能凑成三元组，直接返回结果就可以了
+            if (nums[i] > 0) {
+                return resultList;
+            }
             if (i > 0 && nums[i] == nums[i - 1]) {
                 // 有序列表出现重复triplets,前一个元素已经处理过了（处理的是left、right的取值）
                 continue;

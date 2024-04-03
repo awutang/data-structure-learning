@@ -14,7 +14,7 @@ import java.util.List;
 public class Solution206ReverseLinkedList {
 
 
-    // 迭代法 time:O(n) space:O(1)
+    // 迭代法 time:O(n) space:O(1) 也可叫做双指针法
     /*public ListNode reverseList(ListNode head) {
         if(head == null) {
             return head;
