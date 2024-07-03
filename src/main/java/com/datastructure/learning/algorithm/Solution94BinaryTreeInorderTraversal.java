@@ -50,13 +50,13 @@ public class Solution94BinaryTreeInorderTraversal {
             // 向左一直到某节点没有左子树为止
             while (curr != null) {
                 temp.push(curr);
-                curr = curr.left;
+                curr = curr.getLeft();
             }
             // 左节点输出
             curr = temp.pop();
-            resultList.add(curr.val);
+            resultList.add(curr.getVal());
             // 右节点重复如上操作
-            curr = curr.right;
+            curr = curr.getRight();
         }
         return resultList;
 
@@ -65,9 +65,9 @@ public class Solution94BinaryTreeInorderTraversal {
 
     private void helpler(TreeNode root, List<Integer> resultList) {
         if (root == null) return;
-        helpler(root.left, resultList);
-        resultList.add(root.val);
-        helpler(root.right, resultList);
+        helpler(root.getLeft(), resultList);
+        resultList.add(root.getVal());
+        helpler(root.getRight(), resultList);
     }
 
 
