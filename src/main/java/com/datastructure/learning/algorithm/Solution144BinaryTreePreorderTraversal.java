@@ -21,13 +21,13 @@ public class Solution144BinaryTreePreorderTraversal {
 
         /**递归的实现就是：每一次递归调用都会把函数的局部变量、参数值和返回地址等压入调用栈中，然后递归返回的时候，从栈顶弹出上一次递归的各项参数，
          * 所以这就是递归为什么可以返回上一层位置的原因。此时大家应该知道我们用栈也可以是实现二叉树的前后中序遍历了*/
-        if (root == null) {
-            return null;
-        }
         List<Integer> resultList = new ArrayList<>();
+        if (root == null) {
+            return resultList;
+        }
         Stack<TreeNode> stack = new Stack<>();
 
-        // 中 左 右
+        // 中（中间节点） 左（节点） 右（右节点）
         stack.push(root);
         while (!stack.isEmpty()) {
             // 先输出中,下一轮时先输出左节点再右节点
