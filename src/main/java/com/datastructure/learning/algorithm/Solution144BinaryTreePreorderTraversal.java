@@ -14,7 +14,7 @@ import java.util.Stack;
 public class Solution144BinaryTreePreorderTraversal {
 
     public List<Integer> preorderTraversal(TreeNode root) {
-        // recursive:一定要有终止条件，否则就会无限递归了
+        // recursive:一定要有终止条件，否则就会无限递归了 --递归算法就是深度搜索在二叉树这种数据结构上的应用
         /*List<Integer> resultList = new ArrayList<>();
         helper(resultList, root);
         return resultList;*/
