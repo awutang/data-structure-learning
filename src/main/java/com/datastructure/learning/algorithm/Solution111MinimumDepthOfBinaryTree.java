@@ -48,7 +48,8 @@ public class Solution111MinimumDepthOfBinaryTree {
             return 0;
         }
 
-        // BFS其实应该考虑重复访问的问题，只不过因为数据结构是树，所以不存在重复访问，如果数据结构是图就需要考虑了
+        // 迭代法：
+        /*// BFS其实应该考虑重复访问的问题，只不过因为数据结构是树，所以不存在重复访问，如果数据结构是图就需要考虑了
         Set<TreeNode> visited = new HashSet<>();
 
         // queue LinkedList也是Queue的子类
@@ -80,7 +81,34 @@ public class Solution111MinimumDepthOfBinaryTree {
                 currentList.add(levelQueue.poll().val);
             }
         }
+        return depth;*/
+
+        // 递归法：
+        int depth = getDepth(root);
         return depth;
     }
 
+    private int getDepth(TreeNode treeNode) {
+
+        // 跳出条件
+        if (treeNode == null) {
+            return 0;
+        }
+        int leftDepth = getDepth(treeNode.left);
+        int rightDepth = getDepth(treeNode.right);
+
+        // 最小深度是根节点到第一个叶子节点的深度，所以不能单纯的将左右子树深度取小+1(因为左子树为空时如果单纯的将左右子树深度取小+1那么其实最小深度取值为1，不符合定义)
+        // 如果左子树为空但右子树不为空，那么此时整棵树的最小深度为1 + 右子树最小深度
+        if (treeNode.left == null && treeNode.right != null) {
+            return 1 + rightDepth;
+        }
+
+        // 如果右子树为空但左子树不为空
+        if (treeNode.right == null && treeNode.left != null) {
+            return 1 + leftDepth;
+        }
+
+        // 左右子树都不为空，则将左右子树最小深度取小+1
+        return 1 + Math.min(leftDepth, rightDepth);
+    }
 }
