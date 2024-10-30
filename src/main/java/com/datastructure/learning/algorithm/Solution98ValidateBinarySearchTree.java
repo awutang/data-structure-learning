@@ -73,7 +73,7 @@ public class Solution98ValidateBinarySearchTree {
         }
         // 将当前节点赋值给前一个节点，不断往后遍历则可以实现不断比较前后两个节点
         preNode = root;
-        // 左子树是二叉搜索树
+        // 右子树是二叉搜索树
         boolean right = isValidBST(root.right);
         return left && right;
 
