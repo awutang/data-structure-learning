@@ -39,6 +39,7 @@ public class Solution77Combinations {
         if (k == 0) {
             return null;
         }
+        // startIndex:本层递归的中，集合从哪里开始遍历,可以防止组合重复
         combineDigit(n, k, 1);
         return result;
     }
