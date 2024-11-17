@@ -60,6 +60,7 @@ public class Solution40CombinationSumII {
         if (target == 0 || candidates == null || candidates.length == 0) {
             return null;
         }
+        // 表示元素是否被使用过
         boolean[] used = new boolean[candidates.length];
         Arrays.sort(candidates);
         backtracking(candidates, target, 0, 0, used);
@@ -84,7 +85,8 @@ public class Solution40CombinationSumII {
             if (currentSum + candidates[i] > target) {
                 break;
             }
-            // 横向遍历中，当相同的元素在之前已经被处理（向下、横向遍历）过之后，那么就不需要重复处理了 --横向遍历时树层去重
+            // 同一树层上有相同元素：横向遍历中，当相同的元素在之前已经被处理（向下、横向遍历）过之后，那么就不需要重复处理了 --横向遍历时树层去重
+            // used[i - 1] == false表示是同一树层有相同元素
             if (i > 0 && candidates[i] == candidates[i - 1] && !used[i - 1]) {
                 continue;
             }
@@ -92,7 +94,7 @@ public class Solution40CombinationSumII {
             path.add(candidates[i]);
             currentSum += candidates[i];
             used[i] = true;
-            // startIndex+1可以让每一个组合中取元素不重复（位置不重复）--向下遍历时树枝去重
+            // startIndex+1可以让每一个组合中取元素不重复（位置不重复）--向下遍历时树枝去重，但是不同位置的元素即使值相同也是可以在同一树枝上重复的
             backtracking(candidates, target, currentSum, i + 1, used);
             // backtrack
             path.removeLast();
