@@ -70,7 +70,7 @@ public class Solution46Permutation {
 
         // 横向遍历
         for (int i = 0; i < nums.length; i++) {
-            // 元素不能重复取
+            // 元素不能重复取，不能取同一个元素
             if (used[i]) {
                 continue;
             }
