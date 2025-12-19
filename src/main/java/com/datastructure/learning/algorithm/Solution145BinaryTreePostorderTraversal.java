@@ -1,7 +1,6 @@
 package com.datastructure.learning.algorithm;
 
 import com.datastructure.learning.algorithm.tree.TreeNode;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 

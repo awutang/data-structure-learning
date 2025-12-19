@@ -50,7 +50,7 @@ public class Solution236LowestCommonAncestorOfABinaryTree {
             return root;
         }
 
-        // 后续遍历
+        // 后序遍历--此处lowestCommonAncestor(root.left, p, q)不是返回的最近祖先节点，而是用于判断p、q是否在子树
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
